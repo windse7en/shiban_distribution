@@ -5,18 +5,42 @@
   <title>Shiban</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="https://www.amcharts.com/lib/3/ammap.css">
+  <link rel="stylesheet" type="text/css" href="./vendor/ammap/ammap.css">
   <link rel="stylesheet" type="text/css" href="./dist/css/shiban.css">
-  <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
-  <script src="http://cdn.amcharts.com/lib/3/lang-maps/zh.js"></script>
-  <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-  <script src="https://www.amcharts.com/lib/3/maps/js/australiaLow.js"></script>
-  <script src="https://www.amcharts.com/lib/3/maps/js/canadaLow.js"></script>
-  <script src="https://www.amcharts.com/lib/3/maps/js/chinaLow.js"></script>
-  <script src="https://www.amcharts.com/lib/3/maps/js/usa2Low.js"></script>
-  <script src="./dist/js/shiban.js"></script>
+  <link rel="stylesheet" type="text/css" href="./vendor/bootstrap.min.css">
+  <script src="./vendor/ammap/ammap.js"></script>
+  <script src="./vendor/ammap/zh.js"></script>
+  <script src="./vendor/ammap/worldLow.js"></script>
+  <script src="./vendor/ammap/australiaLow.js"></script>
+  <script src="./vendor/ammap/canadaLow.js"></script>
+  <script src="./vendor/ammap/chinaLow.js"></script>
+  <script src="./vendor/ammap/usa2Low.js"></script>
 </head>
-<body>
+<body style="text-align: center; padding-left: 5%; padding-right: 5%">
+  <div id="header">
+    <h1>十班分布图</h1>
+    <a href="mailto:zt8852@163.com">发送你的信息到这个邮箱</a>
+  </div>
   <div id="mapdiv"></div>
+  <div id="help" style="text-align: left;">
+    <ul>
+      <li>点击
+        <svg version="1.1" style="width: 35px; height: 35px;">
+          <g cursor="pointer">
+            <circle r="15.5" cx="0" cy="0" fill="#FFFFFF" stroke="#000000" fill-opacity="1" stroke-width="1" stroke-opacity="0.1" transform="translate(16,16)"></circle>
+            <path cs="100,100" d="M-6.5,0.5 L0.5,-6.5 L7.5,0.5 L6.5,0.5 L6.5,6.5 L2.5,6.5 L2.5,2.5 L-1.5,2.5 L-1.5,6.5 L-5.5,6.5 L-5.5,0.5 Z" fill="#000000" stroke="#000000" fill-opacity="1" stroke-width="1" stroke-opacity="1" transform="translate(16,16)" opacity="1" style="pointer-events: none;"></path>
+          </g>
+        </svg>
+        返回世界地图</li>
+      <li>点击每个国家地图，变换到国家地图</li>
+      <li>点击<p style="display: inline-block; color: red;">红点</p>显示有那些同学在这里</li>
+    </ul>
+  </div>
+  <div id="cityData"></div>
+  <hr>
+  <div id="peopleData"><h2>已经提交过的同学</h2></div>
+  <hr>
+  <a href="https://yiqixie.com/s/home/fcACBllm380D5b3-vRGovL6tz">找联系方式，来点我</a>
+  <script src="./dist/js/shiban.js"></script>
 </body>
 </html>

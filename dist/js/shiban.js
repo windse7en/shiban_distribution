@@ -74,14 +74,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var getPeopleByCity = function getPeopleByCity(city, people) {
+	var getPeopleByCity = function getPeopleByCity(entry, people) {
+	  var city = entry.city;
 	  var peopleCount = people.reduce(function (total, person) {
 	    return person.city === city ? total + 1 : total;
 	  }, 0);
 	  var result = peopleCount + ' 人<br/>';
+	  // update people count
+	  var cityDiv = document.getElementById('cityData');
+	  cityDiv.innerHTML += entry.title + '(' + entry.country + '): ' + result;
+
 	  people.forEach(function (person) {
 	    if (person.city === city) {
 	      result += person.name + ': ' + person.description + "<br/>";
+	      var peopleDiv = document.getElementById('peopleData');
+	      peopleDiv.innerHTML += '<p>' + person.name + '</p>';
 	    }
 	  });
 	  return result;
@@ -91,88 +98,110 @@
 	  "longitude": 116.4074,
 	  "latitude": 39.9042,
 	  "city": "Beijing",
-	  "title": "北京"
+	  "title": "北京",
+	  "country": "中国"
 	}, {
 	  "longitude": 121.4737,
 	  "latitude": 31.2304,
 	  "city": "Shanghai",
-	  "title": "上海"
+	  "title": "上海",
+	  "country": "中国"
 	}, {
 	  "longitude": 117.2010,
 	  "latitude": 39.0842,
 	  "city": "Tianjin",
-	  "title": "天津"
+	  "title": "天津",
+	  "country": "中国"
 	}, {
 	  "longitude": 113.2644,
 	  "latitude": 23.1291,
 	  "city": "Guangzhou",
-	  "title": "广州"
+	  "title": "广州",
+	  "country": "中国"
 	}, {
 	  "longitude": 126.5350,
 	  "latitude": 45.8038,
 	  "city": "Harbin",
-	  "title": "哈尔滨"
+	  "title": "哈尔滨",
+	  "country": "中国"
 	}, {
 	  "longitude": 131.1477,
 	  "latitude": 44.3998,
 	  "city": "Suifenhe",
-	  "title": "绥芬河"
+	  "title": "绥芬河",
+	  "country": "中国"
 	}, {
 	  "longitude": 114.0579,
 	  "latitude": 22.5431,
 	  "city": "Shenzhen",
-	  "title": "深圳"
+	  "title": "深圳",
+	  "country": "中国"
 	}, {
 	  "longitude": 125.3235,
 	  "latitude": 43.8171,
 	  "city": "Changchun",
-	  "title": "长春"
+	  "title": "长春",
+	  "country": "中国"
 	}, {
 	  "longitude": 123.4315,
 	  "latitude": 41.8057,
 	  "city": "Shenyang",
-	  "title": "沈阳"
+	  "title": "沈阳",
+	  "country": "中国"
 	}];
 
 	var usa_points = [{
 	  "longitude": -73.5619,
 	  "latitude": 40.3951,
 	  "city": "New York",
-	  "title": "纽约"
+	  "title": "纽约",
+	  "country": "美国"
 	}, {
 	  "longitude": -96.7970,
 	  "latitude": 32.7767,
 	  "city": "Dallas",
-	  "title": "达拉斯"
+	  "title": "达拉斯",
+	  "country": "美国"
 	}, {
 	  "longitude": -94.5786,
 	  "latitude": 39.0997,
 	  "city": "Kansas City",
-	  "title": "堪萨斯城"
+	  "title": "堪萨斯城",
+	  "country": "美国"
 	}, {
 	  "longitude": -121.8863,
 	  "latitude": 37.3382,
 	  "city": "San Jose",
-	  "title": "圣荷西"
+	  "title": "圣荷西",
+	  "country": "美国"
+	}, {
+	  "longitude": -117.9001,
+	  "latitude": 33.9167,
+	  "city": "Brea",
+	  "title": "布莱尔",
+	  "country": "美国"
 	}];
 
 	var canada_points = [{
 	  "longitude": -123.1207,
 	  "latitude": 49.2827,
 	  "city": "Vancouver",
-	  "title": "温哥华"
+	  "title": "温哥华",
+	  "country": "加拿大"
 	}];
 
 	var australia_points = [{
 	  "longitude": 151.2093,
 	  "latitude": -33.8688,
 	  "city": "Sydney",
-	  "title": "悉尼"
+	  "title": "悉尼",
+	  "country": "澳大利亚"
 	}, {
 	  "longitude": 144.9631,
 	  "latitude": -37.8136,
 	  "city": "Sydney",
-	  "title": "墨尔本"
+	  "title": "墨尔本",
+	  "country": "澳大利亚"
 	}];
 
 	var all_points = china_points.concat(usa_points, australia_points, canada_points);
@@ -191,7 +220,7 @@
 	  }
 	  entry.alpha = 0.5;
 	  entry.color = "#CC0000";
-	  entry.description = getPeopleByCity(entry.city, _people2.default);
+	  entry.description = getPeopleByCity(entry, _people2.default);
 	  entry.labelShiftY = 2;
 	  entry.scale = 1;
 	  entry.type = "circle";
@@ -318,6 +347,18 @@
 	  "city": "Sydney",
 	  "name": "魏来",
 	  "description": "金融"
+	}, {
+	  "city": "Brea",
+	  "name": "裴云菲",
+	  "description": "会计"
+	}, {
+	  "city": "Harbin",
+	  "name": "沈圆娜",
+	  "description": "铁路文员"
+	}, {
+	  "city": "Beijing",
+	  "name": "刘亚奇",
+	  "description": "食品安全监测"
 	}];
 
 	exports.default = PeopleData;

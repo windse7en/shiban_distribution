@@ -38,6 +38,18 @@ const PeopleData = [{
     "city": "Sydney",
     "name": "魏来",
     "description": "金融"
+  },{
+    "city": "Brea",
+    "name": "裴云菲",
+    "description": "会计"
+  },{
+    "city": "Harbin",
+    "name": "沈圆娜",
+    "description": "铁路文员"
+  },{
+    "city": "Beijing",
+    "name": "刘亚奇",
+    "description": "食品安全监测"
 }];
 
 export default PeopleData;
