@@ -88,7 +88,7 @@
 	    if (person.city === city) {
 	      result += person.name + ': ' + person.description + "<br/>";
 	      var peopleDiv = document.getElementById('peopleData');
-	      peopleDiv.innerHTML += '<p>' + person.name + '</p>';
+	      peopleDiv.innerHTML += '<p>' + person.name + '(' + entry.title + ', ' + entry.country + ')</p>';
 	    }
 	  });
 	  return result;

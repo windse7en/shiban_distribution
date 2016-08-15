@@ -13,7 +13,7 @@ const getPeopleByCity = (entry, people) => {
     if (person.city === city) {
       result  += (person.name + ': ' + person.description + "<br/>");
       const peopleDiv = document.getElementById('peopleData');
-      peopleDiv.innerHTML += `<p>${person.name}</p>`;
+      peopleDiv.innerHTML += `<p>${person.name}(${entry.title}, ${entry.country})</p>`;
     }
   });
   return result;
